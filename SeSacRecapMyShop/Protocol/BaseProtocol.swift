@@ -10,5 +10,4 @@ import Foundation
 protocol BaseProtocol{
     func setUpView()
     func setConstraints()
-    func setDelegate()
 }

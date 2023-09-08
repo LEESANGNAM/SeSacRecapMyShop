@@ -16,6 +16,7 @@
 		D63FA3B72AAB88D600871FDE /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3B62AAB88D600871FDE /* SearchView.swift */; };
 		D63FA3B92AAB8D9900871FDE /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3B82AAB8D9900871FDE /* SearchViewController.swift */; };
 		D63FA3BC2AAB937A00871FDE /* SearchSortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3BB2AAB937A00871FDE /* SearchSortType.swift */; };
+		D63FA3BF2AAB958300871FDE /* SearchSortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3BE2AAB958300871FDE /* SearchSortButton.swift */; };
 		D65E64442AAA2E590023F6DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64432AAA2E590023F6DF /* AppDelegate.swift */; };
 		D65E64462AAA2E590023F6DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64452AAA2E590023F6DF /* SceneDelegate.swift */; };
 		D65E64482AAA2E590023F6DF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64472AAA2E590023F6DF /* BaseViewController.swift */; };
@@ -30,6 +31,7 @@
 		D63FA3B62AAB88D600871FDE /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		D63FA3B82AAB8D9900871FDE /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D63FA3BB2AAB937A00871FDE /* SearchSortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSortType.swift; sourceTree = "<group>"; };
+		D63FA3BE2AAB958300871FDE /* SearchSortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSortButton.swift; sourceTree = "<group>"; };
 		D65E64402AAA2E590023F6DF /* SeSacRecapMyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacRecapMyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65E64432AAA2E590023F6DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65E64452AAA2E590023F6DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		D63FA3BD2AAB956600871FDE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D63FA3BE2AAB958300871FDE /* SearchSortButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D65E64372AAA2E590023F6DF = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +125,7 @@
 		D65E64422AAA2E590023F6DF /* SeSacRecapMyShop */ = {
 			isa = PBXGroup;
 			children = (
+				D63FA3BD2AAB956600871FDE /* View */,
 				D63FA3BA2AAB935D00871FDE /* Enum */,
 				D63FA3B42AAB888F00871FDE /* Scene */,
 				D63FA3AD2AAB7E8C00871FDE /* Protocol */,
@@ -213,6 +224,7 @@
 				D63FA3BC2AAB937A00871FDE /* SearchSortType.swift in Sources */,
 				D63FA3B92AAB8D9900871FDE /* SearchViewController.swift in Sources */,
 				D63FA3B12AAB7F3600871FDE /* BaseView.swift in Sources */,
+				D63FA3BF2AAB958300871FDE /* SearchSortButton.swift in Sources */,
 				D63FA3B72AAB88D600871FDE /* SearchView.swift in Sources */,
 				D63FA3AF2AAB7E9A00871FDE /* BaseProtocol.swift in Sources */,
 				D65E64462AAA2E590023F6DF /* SceneDelegate.swift in Sources */,

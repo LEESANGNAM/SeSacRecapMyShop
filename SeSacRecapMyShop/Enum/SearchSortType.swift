@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SearchSortType{
+enum SearchSortType:Int, CaseIterable{
     case sim
     case date
     case asc

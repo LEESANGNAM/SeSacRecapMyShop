@@ -7,14 +7,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BaseViewController: UIViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
+        setUpView()
+        setConstraints()
+        setDelegate()
         // Do any additional setup after loading the view.
     }
+    
 
+    func setUpView(){
+        view.backgroundColor = .black
+    }
+    func setConstraints(){ }
+    func setDelegate(){ }
 
 }
 

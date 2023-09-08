@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController,BaseProtocol {
+class BaseViewController: UIViewController, BaseProtocol {
 
     
     override func viewDidLoad() {
@@ -20,7 +20,7 @@ class BaseViewController: UIViewController,BaseProtocol {
     
 
     func setUpView(){
-        view.backgroundColor = .black
+        view.backgroundColor = .systemBackground
     }
     func setConstraints(){ }
     func setDelegate(){ }

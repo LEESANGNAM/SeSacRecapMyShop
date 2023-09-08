@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BaseCollectionViewCell: UICollectionViewCell {
+class BaseCollectionViewCell: UICollectionViewCell, BaseProtocol {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,11 +18,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
     func setUpView(){ }
-    
     func setConstraints(){ }
     
     

@@ -27,7 +27,7 @@ struct Item: Codable {
 //    let category4: String
     
     var imageURL: URL? {
-        return URL(string: link)
+        return URL(string: image)
     }
     
     enum CodingKeys: String, CodingKey {

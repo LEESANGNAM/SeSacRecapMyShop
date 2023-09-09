@@ -72,7 +72,6 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
     }
     func setUpCellUI(item: Item){
         if let imageURL = item.imageURL{
-            print("----------------------------url",imageURL)
             posterImageView.kf.setImage(with: imageURL)
         }else{
             posterImageView.image = UIImage(systemName: "bag.fill.badge.questionmark")

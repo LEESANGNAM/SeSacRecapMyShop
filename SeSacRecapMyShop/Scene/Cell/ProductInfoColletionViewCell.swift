@@ -11,7 +11,6 @@ import Kingfisher
 class ProductInfoColletionViewCell: BaseCollectionViewCell {
     let posterImageView = {
         let image = UIImageView()
-        image.backgroundColor = .systemYellow
         image.layer.cornerRadius = 10
         image.layer.masksToBounds = true
         return image
@@ -40,8 +39,9 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
         let buttonSize:CGFloat = 40
         button.frame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
         button.setImage(UIImage(systemName: "heart"), for: .normal)
+        button.tintColor = .black
         button.layer.cornerRadius = buttonSize / 2
-        button.backgroundColor = .green
+        button.backgroundColor = .white
         return button
     }()
     lazy var stackView = {

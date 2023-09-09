@@ -37,7 +37,6 @@ class SearchView: BaseView {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
         view.register(ProductInfoColletionViewCell.self, forCellWithReuseIdentifier: ProductInfoColletionViewCell.identifier)
         view.collectionViewLayout = setCollectionViewLayout()
-        view.backgroundColor = .blue
         return view
     }()
     

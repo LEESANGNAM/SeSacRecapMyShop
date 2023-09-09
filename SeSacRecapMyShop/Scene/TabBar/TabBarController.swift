@@ -17,9 +17,9 @@ class TabBarController: UITabBarController {
         setUpTabbar()
     }
     func setUpTabbar(){
-        self.tabBar.tintColor = .black
+        self.tabBar.tintColor = .label
         self.tabBar.unselectedItemTintColor = .systemGray
-        self.tabBar.backgroundColor = .white
+        self.tabBar.backgroundColor = .systemBackground
         
         movieTrendWeekViewController.tabBarItem.title = "검색"
         movieTrendWeekViewController.tabBarItem.image = UIImage(systemName: "magnifyingglass")

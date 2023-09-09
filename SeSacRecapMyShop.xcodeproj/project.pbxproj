@@ -19,6 +19,8 @@
 		D63FA3BF2AAB958300871FDE /* SearchSortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3BE2AAB958300871FDE /* SearchSortButton.swift */; };
 		D63FA3C22AAC3E1100871FDE /* ProductInfoColletionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3C12AAC3E1100871FDE /* ProductInfoColletionViewCell.swift */; };
 		D63FA3C42AAC461400871FDE /* ReusablViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3C32AAC461400871FDE /* ReusablViewProtocol.swift */; };
+		D63FA3C72AAC4AD700871FDE /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3C62AAC4AD700871FDE /* LikeViewController.swift */; };
+		D63FA3CA2AAC4B3B00871FDE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3C92AAC4B3B00871FDE /* TabBarController.swift */; };
 		D65E64442AAA2E590023F6DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64432AAA2E590023F6DF /* AppDelegate.swift */; };
 		D65E64462AAA2E590023F6DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64452AAA2E590023F6DF /* SceneDelegate.swift */; };
 		D65E64482AAA2E590023F6DF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64472AAA2E590023F6DF /* BaseViewController.swift */; };
@@ -36,6 +38,8 @@
 		D63FA3BE2AAB958300871FDE /* SearchSortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSortButton.swift; sourceTree = "<group>"; };
 		D63FA3C12AAC3E1100871FDE /* ProductInfoColletionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoColletionViewCell.swift; sourceTree = "<group>"; };
 		D63FA3C32AAC461400871FDE /* ReusablViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablViewProtocol.swift; sourceTree = "<group>"; };
+		D63FA3C62AAC4AD700871FDE /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
+		D63FA3C92AAC4B3B00871FDE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D65E64402AAA2E590023F6DF /* SeSacRecapMyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacRecapMyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65E64432AAA2E590023F6DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65E64452AAA2E590023F6DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 		D63FA3B42AAB888F00871FDE /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D63FA3C82AAC4B1200871FDE /* TabBar */,
+				D63FA3C52AAC4AC300871FDE /* Like */,
 				D63FA3C02AAC3D7B00871FDE /* Cell */,
 				D63FA3B52AAB88C100871FDE /* Search */,
 			);
@@ -118,6 +124,22 @@
 				D63FA3C12AAC3E1100871FDE /* ProductInfoColletionViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		D63FA3C52AAC4AC300871FDE /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				D63FA3C62AAC4AD700871FDE /* LikeViewController.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		D63FA3C82AAC4B1200871FDE /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				D63FA3C92AAC4B3B00871FDE /* TabBarController.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		D65E64372AAA2E590023F6DF = {
@@ -241,8 +263,10 @@
 				D63FA3B92AAB8D9900871FDE /* SearchViewController.swift in Sources */,
 				D63FA3B12AAB7F3600871FDE /* BaseView.swift in Sources */,
 				D63FA3BF2AAB958300871FDE /* SearchSortButton.swift in Sources */,
+				D63FA3C72AAC4AD700871FDE /* LikeViewController.swift in Sources */,
 				D63FA3B72AAB88D600871FDE /* SearchView.swift in Sources */,
 				D63FA3AF2AAB7E9A00871FDE /* BaseProtocol.swift in Sources */,
+				D63FA3CA2AAC4B3B00871FDE /* TabBarController.swift in Sources */,
 				D65E64462AAA2E590023F6DF /* SceneDelegate.swift in Sources */,
 				D63FA3B32AAB84A600871FDE /* BaseCollectionViewCell.swift in Sources */,
 			);

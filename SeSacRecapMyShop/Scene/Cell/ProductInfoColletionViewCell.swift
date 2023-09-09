@@ -12,23 +12,27 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
     let posterImageView = {
         let image = UIImageView()
         image.backgroundColor = .systemYellow
-        image.layer.cornerRadius = 5
+        image.layer.cornerRadius = 10
+        image.layer.masksToBounds = true
         return image
     }()
     let mallNameLabel = {
         let label = UILabel()
         label.text = "제품 업체명"
+        label.setUpMallLabelStyle()
         return label
     }()
     let titleNameLabel = {
         let label = UILabel()
         label.text = "제품명(소개)"
         label.numberOfLines = 2
+        label.setUpTitleLabelStyle()
         return label
     }()
     let infoPriceLabel = {
         let label = UILabel()
         label.text = "가격1,111,111,111"
+        label.setUpPriceLabelStyle()
         return label
     }()
     let likeButton = {
@@ -76,7 +80,7 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
         }else{
             posterImageView.image = UIImage(systemName: "bag.fill.badge.questionmark")
         }
-        mallNameLabel.text = item.mallName
+        mallNameLabel.text = "[\(item.mallName)]"
         titleNameLabel.text = item.title
         infoPriceLabel.text = item.lprice
     }

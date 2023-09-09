@@ -25,6 +25,7 @@
 		D63FA3CE2AAC504B00871FDE /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3CD2AAC504B00871FDE /* APIKey.swift */; };
 		D63FA3D12AAC5E3700871FDE /* ShopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3D02AAC5E3700871FDE /* ShopInfo.swift */; };
 		D63FA3D42AAC5FB700871FDE /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3D32AAC5FB700871FDE /* APIService.swift */; };
+		D63FA3D72AACB89000871FDE /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3D62AACB89000871FDE /* UILabel+Extension.swift */; };
 		D65E64442AAA2E590023F6DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64432AAA2E590023F6DF /* AppDelegate.swift */; };
 		D65E64462AAA2E590023F6DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64452AAA2E590023F6DF /* SceneDelegate.swift */; };
 		D65E64482AAA2E590023F6DF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64472AAA2E590023F6DF /* BaseViewController.swift */; };
@@ -48,6 +49,7 @@
 		D63FA3CD2AAC504B00871FDE /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		D63FA3D02AAC5E3700871FDE /* ShopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopInfo.swift; sourceTree = "<group>"; };
 		D63FA3D32AAC5FB700871FDE /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		D63FA3D62AACB89000871FDE /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		D65E64402AAA2E590023F6DF /* SeSacRecapMyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacRecapMyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65E64432AAA2E590023F6DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65E64452AAA2E590023F6DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -166,6 +168,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		D63FA3D52AACB87D00871FDE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D63FA3D62AACB89000871FDE /* UILabel+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		D65E64372AAA2E590023F6DF = {
 			isa = PBXGroup;
 			children = (
@@ -185,6 +195,7 @@
 		D65E64422AAA2E590023F6DF /* SeSacRecapMyShop */ = {
 			isa = PBXGroup;
 			children = (
+				D63FA3D52AACB87D00871FDE /* Extension */,
 				D63FA3D22AAC5FA300871FDE /* Network */,
 				D63FA3CF2AAC5E2500871FDE /* Model */,
 				D63FA3BD2AAB956600871FDE /* View */,
@@ -292,6 +303,7 @@
 				D63FA3CE2AAC504B00871FDE /* APIKey.swift in Sources */,
 				D63FA3C22AAC3E1100871FDE /* ProductInfoColletionViewCell.swift in Sources */,
 				D63FA3B92AAB8D9900871FDE /* SearchViewController.swift in Sources */,
+				D63FA3D72AACB89000871FDE /* UILabel+Extension.swift in Sources */,
 				D63FA3B12AAB7F3600871FDE /* BaseView.swift in Sources */,
 				D63FA3BF2AAB958300871FDE /* SearchSortButton.swift in Sources */,
 				D63FA3C72AAC4AD700871FDE /* LikeViewController.swift in Sources */,

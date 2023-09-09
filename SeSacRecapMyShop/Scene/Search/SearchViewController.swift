@@ -17,6 +17,7 @@ class SearchViewcontroller: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "상품 검색"
     }
     override func setUpView() {
         super.setUpView()

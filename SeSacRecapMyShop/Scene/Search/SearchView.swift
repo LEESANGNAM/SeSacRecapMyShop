@@ -35,7 +35,7 @@ class SearchView: BaseView {
     
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
-        view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "TestCell")
+        view.register(ProductInfoColletionViewCell.self, forCellWithReuseIdentifier: ProductInfoColletionViewCell.identifier)
         view.collectionViewLayout = setCollectionViewLayout()
         view.backgroundColor = .blue
         return view
@@ -47,7 +47,7 @@ class SearchView: BaseView {
         // 전체 너비 가져와서 빼기
         let width = UIScreen.main.bounds.width - (spacing * 3)
         let itemSize = width / 2
-        layout.itemSize = CGSize(width: itemSize, height: itemSize)
+        layout.itemSize = CGSize(width: itemSize, height: itemSize * 1.5)
         //컬렉션뷰 inset
         layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: 0, right: spacing)
         // 최소 간격

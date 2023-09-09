@@ -52,7 +52,7 @@ class SearchViewcontroller: BaseViewController {
 extension SearchViewcontroller {
     func callRequest(type: SearchSortType, page: Int, text : String){
         APIService.shared.callRequest(type: type, query: text, page: page) { (data: ShopInfo) in
-            print(data.items)
+//            print(data.items)
             self.productList += data.items
             self.mainView.collectionView.reloadData()
         }
@@ -68,6 +68,13 @@ extension SearchViewcontroller: UISearchBarDelegate {
         productList.removeAll()
         searchBar.resignFirstResponder()
         callRequest(type: sortType, page: page, text: searchText)
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        page = 1
+        searchBar.text = ""
+        searchText = ""
+        productList.removeAll()
+        mainView.collectionView.reloadData()
     }
 }
 

@@ -16,13 +16,12 @@ class SearchView: BaseView {
         let view = UISearchBar()
         view.placeholder = "검색어를 입력해주세요"
         view.backgroundImage = UIImage()
+        view.showsCancelButton = true
+        if let cancelButton = view.value(forKey: "cancelButton") as? UIButton {
+            cancelButton.setTitleColor(.label, for: .normal)
+            cancelButton.setTitle("취소", for: .normal)
+        }
         return view
-    }()
-    let cancleButton = {
-        let button = UIButton()
-        button.setTitle("취소", for: .normal)
-        button.setTitleColor( .label , for: .normal)
-        return button
     }()
     lazy var stackView = {
         let view = UIStackView(arrangedSubviews: sortButtons)
@@ -65,7 +64,6 @@ class SearchView: BaseView {
     override func setUpView() {
         super.setUpView()
         addSubview(searchBar)
-        addSubview(cancleButton)
         createSortButton()
         addSubview(stackView)
         addSubview(collectionView)
@@ -74,13 +72,7 @@ class SearchView: BaseView {
     override func setConstraints() {
         
         searchBar.snp.makeConstraints { make in
-            make.leading.equalTo(self.safeAreaLayoutGuide).offset(20)
-            make.top.equalTo(self.safeAreaLayoutGuide)
-        }
-        cancleButton.snp.makeConstraints { make in
-            make.trailing.equalTo(self.safeAreaLayoutGuide).offset(-20)
-            make.leading.equalTo(searchBar.snp.trailing).offset(10)
-            make.height.equalTo(searchBar.snp.height)
+            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(5)
             make.top.equalTo(self.safeAreaLayoutGuide)
         }
         stackView.snp.makeConstraints { make in

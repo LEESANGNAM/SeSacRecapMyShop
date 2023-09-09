@@ -21,6 +21,7 @@
 		D63FA3C42AAC461400871FDE /* ReusablViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3C32AAC461400871FDE /* ReusablViewProtocol.swift */; };
 		D63FA3C72AAC4AD700871FDE /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3C62AAC4AD700871FDE /* LikeViewController.swift */; };
 		D63FA3CA2AAC4B3B00871FDE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3C92AAC4B3B00871FDE /* TabBarController.swift */; };
+		D63FA3CC2AAC501B00871FDE /* .gitIgnore in Resources */ = {isa = PBXBuildFile; fileRef = D63FA3CB2AAC501B00871FDE /* .gitIgnore */; };
 		D65E64442AAA2E590023F6DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64432AAA2E590023F6DF /* AppDelegate.swift */; };
 		D65E64462AAA2E590023F6DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64452AAA2E590023F6DF /* SceneDelegate.swift */; };
 		D65E64482AAA2E590023F6DF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64472AAA2E590023F6DF /* BaseViewController.swift */; };
@@ -40,6 +41,7 @@
 		D63FA3C32AAC461400871FDE /* ReusablViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusablViewProtocol.swift; sourceTree = "<group>"; };
 		D63FA3C62AAC4AD700871FDE /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
 		D63FA3C92AAC4B3B00871FDE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		D63FA3CB2AAC501B00871FDE /* .gitIgnore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitIgnore; sourceTree = "<group>"; };
 		D65E64402AAA2E590023F6DF /* SeSacRecapMyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacRecapMyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65E64432AAA2E590023F6DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65E64452AAA2E590023F6DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				D65E644C2AAA2E5B0023F6DF /* Assets.xcassets */,
 				D65E644E2AAA2E5B0023F6DF /* LaunchScreen.storyboard */,
 				D65E64512AAA2E5B0023F6DF /* Info.plist */,
+				D63FA3CB2AAC501B00871FDE /* .gitIgnore */,
 			);
 			path = SeSacRecapMyShop;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			files = (
 				D65E64502AAA2E5B0023F6DF /* LaunchScreen.storyboard in Resources */,
 				D65E644D2AAA2E5B0023F6DF /* Assets.xcassets in Resources */,
+				D63FA3CC2AAC501B00871FDE /* .gitIgnore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

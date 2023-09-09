@@ -5,13 +5,13 @@
 //  Created by 이상남 on 2023/09/09.
 //
 
-import Foundation
+import UIKit
 
 
 class SearchViewcontroller: BaseViewController {
+    let mainView = SearchView()
     
     override func loadView() {
-        let mainView = SearchView()
         self.view = mainView
     }
     
@@ -24,4 +24,23 @@ class SearchViewcontroller: BaseViewController {
     
     override func setConstraints() {
     }
+    override func setDelegate() {
+        mainView.collectionView.delegate = self
+        mainView.collectionView.dataSource = self
+    }
+}
+
+
+extension SearchViewcontroller: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TestCell", for: indexPath)
+        cell.backgroundColor = .systemGray
+        return cell
+    }
+    
+    
 }

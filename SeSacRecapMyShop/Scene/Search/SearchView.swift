@@ -32,6 +32,30 @@ class SearchView: BaseView {
         view.distribution = .fillProportionally
         return view
     }()
+    
+    lazy var collectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
+        view.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "TestCell")
+        view.collectionViewLayout = setCollectionViewLayout()
+        view.backgroundColor = .blue
+        return view
+    }()
+    
+    func setCollectionViewLayout() -> UICollectionViewFlowLayout{
+        let layout = UICollectionViewFlowLayout()
+        let spacing: CGFloat = 10
+        // 전체 너비 가져와서 빼기
+        let width = UIScreen.main.bounds.width - (spacing * 3)
+        let itemSize = width / 2
+        layout.itemSize = CGSize(width: itemSize, height: itemSize)
+        //컬렉션뷰 inset
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: 0, right: spacing)
+        // 최소 간격
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        return layout
+    }
+    
     func createSortButton(){
         for sortType in searchSortButtonlist {
               let button = SearchSortButton()
@@ -45,6 +69,7 @@ class SearchView: BaseView {
         addSubview(cancleButton)
         createSortButton()
         addSubview(stackView)
+        addSubview(collectionView)
     }
     
     override func setConstraints() {
@@ -63,6 +88,10 @@ class SearchView: BaseView {
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(10)
             make.trailing.lessThanOrEqualTo(self.safeAreaLayoutGuide).offset(-20)
             make.top.equalTo(searchBar.snp.bottom).offset(10)
+        }
+        collectionView.snp.makeConstraints { make in
+            make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
+            make.top.equalTo(stackView.snp.bottom)
         }
         
     }

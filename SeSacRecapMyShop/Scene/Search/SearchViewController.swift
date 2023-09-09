@@ -10,6 +10,7 @@ import UIKit
 
 class SearchViewcontroller: BaseViewController {
     let mainView = SearchView()
+    let sortTypeList = SearchSortType.allCases
     var productList: [Item] = []
     var page = 1 // 페이지 저장용
     var searchText = "" //검색어 저장용
@@ -24,8 +25,11 @@ class SearchViewcontroller: BaseViewController {
     }
     override func setUpView() {
         super.setUpView()
+        for (index, button) in mainView.sortButtons.enumerated(){
+            button.tag = index
+            button.addTarget(self, action: #selector(sortButtonTapped), for: .touchUpInside)
+        }
     }
-    
     override func setConstraints() {
     }
     override func setDelegate() {
@@ -34,6 +38,15 @@ class SearchViewcontroller: BaseViewController {
         mainView.collectionView.prefetchDataSource = self
         mainView.searchBar.delegate = self
     }
+    
+    @objc func sortButtonTapped(_ sender: UIButton){
+        let index = sender.tag
+        let buttonTappedType = sortTypeList[index]
+        sortType = buttonTappedType // 버튼 클릭하면 정렬 타입 변경
+        productList.removeAll()       //리스트 지우고 바뀐 타입으로 요청
+        callRequest(type: sortType, page: page, text: searchText)
+    }
+    
 }
 //MARK: - APICallRequest
 extension SearchViewcontroller {
@@ -51,6 +64,7 @@ extension SearchViewcontroller: UISearchBarDelegate {
         guard let text = searchBar.text, !text.isEmpty else {  return }
         page = 1
         searchText = text
+        sortType = .sim // 검색 기본값 정확도로 검색
         productList.removeAll()
         searchBar.resignFirstResponder()
         callRequest(type: sortType, page: page, text: searchText)

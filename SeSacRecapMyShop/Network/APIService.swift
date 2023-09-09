@@ -26,7 +26,7 @@ class APIService {
                 "start": page, // 페이지
                 "sort": type.requstParam //정렬 방법 
             ]
-            
+        print("--------------------url",url,"------------sort",type.requstParam)
             AF.request(url, method: .get, parameters: parameters, headers: header).validate()
                 .responseDecodable(of: T.self) { response in
                     switch response.result {

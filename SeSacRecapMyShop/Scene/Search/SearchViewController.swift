@@ -10,7 +10,7 @@ import UIKit
 
 class SearchViewcontroller: BaseViewController {
     let mainView = SearchView()
-    var proTitle: String?
+    var productList: [Item] = []
     override func loadView() {
         self.view = mainView
     }
@@ -18,11 +18,7 @@ class SearchViewcontroller: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "상품 검색"
-        APIService.shared.callRequest(type: .sim, query: "캠핑카", page: 1) { (data: ShopInfo) in
-            print(data.items)
-            self.proTitle = data.items[0].title
-            self.mainView.collectionView.reloadData()
-        }
+        callRequest()
     }
     override func setUpView() {
         super.setUpView()
@@ -35,19 +31,26 @@ class SearchViewcontroller: BaseViewController {
         mainView.collectionView.dataSource = self
     }
 }
+extension SearchViewcontroller {
+    func callRequest(){
+        APIService.shared.callRequest(type: .sim, query: "캠핑카", page: 1) { (data: ShopInfo) in
+            print(data.items)
+            self.productList = data.items
+            self.mainView.collectionView.reloadData()
+        }
+    }
+}
 
 
 extension SearchViewcontroller: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return productList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductInfoColletionViewCell.identifier, for: indexPath) as! ProductInfoColletionViewCell
-        cell.backgroundColor = .systemGray
-        if let proTitle {
-            cell.titleNameLabel.text = proTitle
-        }
+        let item = productList[indexPath.row]
+        cell.setUpCellUI(item: item)
         return cell
     }
     

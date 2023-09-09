@@ -25,7 +25,11 @@ struct Item: Codable {
 //    let category2: Category2
 //    let category3: Category3
 //    let category4: String
-
+    
+    var imageURL: URL? {
+        return URL(string: link)
+    }
+    
     enum CodingKeys: String, CodingKey {
         case title, link, image, lprice, hprice, mallName
         case productID = "productId"

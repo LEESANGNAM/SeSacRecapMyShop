@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ProductInfoColletionViewCell: BaseCollectionViewCell {
     let posterImageView = {
@@ -69,6 +70,16 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
             make.bottom.lessThanOrEqualToSuperview()
         }
     }
-    
+    func setUpCellUI(item: Item){
+        if let imageURL = item.imageURL{
+            print("----------------------------url",imageURL)
+            posterImageView.kf.setImage(with: imageURL)
+        }else{
+            posterImageView.image = UIImage(systemName: "bag.fill.badge.questionmark")
+        }
+        mallNameLabel.text = item.mallName
+        titleNameLabel.text = item.title
+        infoPriceLabel.text = item.lprice
+    }
     
 }

@@ -12,9 +12,11 @@ protocol LikeRepositoryType: AnyObject {
         func fetch() -> Results<LikeProduct>
         func fetchFilter(item: Item) -> Results<LikeProduct>
         func createItem(_ item: LikeProduct)
+        func removeItem(_ item: LikeProduct)
 }
 
 class LikeRepository:LikeRepositoryType {
+    
     private let realm = try! Realm()
     
     func fetch() -> Results<LikeProduct>{
@@ -38,5 +40,15 @@ class LikeRepository:LikeRepositoryType {
             print(error)
         }
     }
+    func removeItem(_ item: LikeProduct) {
+        do {
+            try realm.write {
+                realm.delete(item)
+            }
+        }catch{
+            print(error)
+        }
+    }
+
 }
 

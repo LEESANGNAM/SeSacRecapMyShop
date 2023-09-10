@@ -52,16 +52,19 @@ class SearchViewcontroller: BaseViewController {
         print("button Tapped")
         let product = productList[sender.tag]
         
-        let test =  repository.fetchFilter(item: product)
+        let filterLikeProduct =  repository.fetchFilter(item: product)
         
-        if test.isEmpty {
+        if filterLikeProduct.isEmpty {
             let likeprodut = LikeProduct(item: product)
             repository.createItem(likeprodut)
             print("추가완료")
         }else {
-            print("좋아요목록에 있음") // 삭제예정
+            if let item = filterLikeProduct.first{
+                repository.removeItem(item)
+                print("삭제완료")
+            }
         }
-        mainView.collectionView.reloadData()
+        mainView.collectionView.reloadItems(at: [IndexPath(item: sender.tag, section: 0)])
     }
     
 }
@@ -69,7 +72,7 @@ class SearchViewcontroller: BaseViewController {
 extension SearchViewcontroller {
     func callRequest(type: SearchSortType, page: Int, text : String){
         APIService.shared.callRequest(type: type, query: text, page: page) { (data: ShopInfo) in
-//            print(data.items)
+            //            print(data.items)
             self.productList += data.items
             self.mainView.collectionView.reloadData()
         }

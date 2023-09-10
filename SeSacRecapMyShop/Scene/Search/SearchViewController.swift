@@ -52,17 +52,13 @@ class SearchViewcontroller: BaseViewController {
         print("button Tapped")
         let product = productList[sender.tag]
         
-        let filterLikeProduct =  repository.fetchFilter(item: product)
-        
-        if filterLikeProduct.isEmpty {
+        if let filterLikeProduct = repository.fetchFilter(item: product).first{
+            repository.removeItem(filterLikeProduct)
+            print("삭제완료")
+        } else {
             let likeprodut = LikeProduct(item: product)
             repository.createItem(likeprodut)
             print("추가완료")
-        }else {
-            if let item = filterLikeProduct.first{
-                repository.removeItem(item)
-                print("삭제완료")
-            }
         }
         mainView.collectionView.reloadItems(at: [IndexPath(item: sender.tag, section: 0)])
     }

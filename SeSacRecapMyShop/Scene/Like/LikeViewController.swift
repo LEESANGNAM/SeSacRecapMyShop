@@ -34,6 +34,7 @@ class LikeViewController: BaseViewController {
     override func setDelegate() {
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
+        mainView.searchBar.delegate = self
     }
     @objc func likeButtonTapped(_ sender: UIButton){
         print("button Tapped")
@@ -54,5 +55,23 @@ extension LikeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.likeButton.tag = indexPath.row
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         return cell
+    }
+}
+extension LikeViewController: UISearchBarDelegate {
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        likeList = repository.fetch()
+        mainView.collectionView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty{
+            likeList = repository.fetch()
+            mainView.collectionView.reloadData()
+            return
+        }
+        likeList = repository.fetchFilterTitle(title: searchText)
+        mainView.collectionView.reloadData()
     }
 }

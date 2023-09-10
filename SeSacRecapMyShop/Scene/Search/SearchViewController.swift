@@ -24,6 +24,10 @@ class SearchViewcontroller: BaseViewController {
         super.viewDidLoad()
         title = "상품 검색"
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mainView.collectionView.reloadData()
+    }
     override func setUpView() {
         super.setUpView()
         for (index, button) in mainView.sortButtons.enumerated(){

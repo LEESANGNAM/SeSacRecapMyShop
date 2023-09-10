@@ -11,6 +11,7 @@ import RealmSwift
 protocol LikeRepositoryType: AnyObject {
         func fetch() -> Results<LikeProduct>
         func fetchFilter(item: Item) -> Results<LikeProduct>
+        func fetchFilterTitle(title: String) -> Results<LikeProduct>
         func createItem(_ item: LikeProduct)
         func removeItem(_ item: LikeProduct)
 }
@@ -27,6 +28,12 @@ class LikeRepository:LikeRepositoryType {
     func fetchFilter(item: Item) -> Results<LikeProduct>{
         let result = realm.objects(LikeProduct.self).where {
             $0.productID == item.productID
+        }
+        return result
+    }
+    func fetchFilterTitle(title: String) -> Results<LikeProduct> {
+        let result = realm.objects(LikeProduct.self).where {
+            $0.title.contains(title, options: .caseInsensitive)
         }
         return result
     }

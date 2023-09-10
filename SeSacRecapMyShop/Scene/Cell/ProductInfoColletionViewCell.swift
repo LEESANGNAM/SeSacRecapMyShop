@@ -82,7 +82,7 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
         }
         mallNameLabel.text = "[\(item.mallName)]"
         titleNameLabel.text = item.title
-        infoPriceLabel.text = item.lprice
+        infoPriceLabel.text = item.lprice.changeFormatPrice()
     }
     
 }

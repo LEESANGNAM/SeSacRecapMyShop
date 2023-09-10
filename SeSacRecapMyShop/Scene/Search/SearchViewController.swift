@@ -131,6 +131,14 @@ extension SearchViewcontroller: UICollectionViewDelegate, UICollectionViewDataSo
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = productList[indexPath.row]
+        let vc = DetailViewController()
+        vc.product = item
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension SearchViewcontroller: UICollectionViewDataSourcePrefetching {

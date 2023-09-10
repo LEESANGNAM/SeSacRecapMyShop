@@ -56,6 +56,12 @@ extension LikeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let item = likeList[indexPath.row]
+        let vc = DetailViewController()
+        vc.product = item
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 extension LikeViewController: UISearchBarDelegate {
     

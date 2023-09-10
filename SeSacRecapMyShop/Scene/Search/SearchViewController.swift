@@ -46,17 +46,18 @@ class SearchViewcontroller: BaseViewController {
     }
     
     @objc func sortButtonTapped(_ sender: UIButton){
+        guard let text = mainView.searchBar.text, !text.isEmpty else {
+            print("선택 안되게 할거임, 색상타입도 안바꿔줄거임")
+            return
+        }
         let index = sender.tag
         let buttonTappedType = sortTypeList[index]
         let selectSortButton = mainView.sortButtons[index]
         
         if let selectButton {
-            selectButton.backgroundColor = .systemBackground
-            selectButton.setTitleColor(.label, for: .normal)
+            selectButton.defaultSortButtonStyle()
         }
-        
-        sender.backgroundColor = .label   // 선택된 버튼의 배경을 라벨컬러
-        sender.setTitleColor(.systemBackground, for: .normal) // 라벨을 배경컬러로 반전 시켜준다.
+        sender.selectSortButtonStyle()  // 선택된 버튼의 배경을 라벨컬러, 라벨을 배경컬러로 반전 시켜준다.
         selectButton = selectSortButton
         sortType = buttonTappedType // 버튼 클릭하면 정렬 타입 변경
         
@@ -99,8 +100,7 @@ extension SearchViewcontroller: UISearchBarDelegate {
         searchText = text
         sortType = .sim // 검색 기본값 정확도로 검색
         if let firstButton = mainView.sortButtons.first {
-                firstButton.backgroundColor = .label
-                firstButton.setTitleColor(.systemBackground, for: .normal)
+                firstButton.selectSortButtonStyle()
                 selectButton = firstButton
             }
         productList.removeAll()

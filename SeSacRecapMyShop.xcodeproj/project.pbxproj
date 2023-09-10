@@ -32,6 +32,7 @@
 		D63FA3E02AAD81BB00871FDE /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D63FA3DF2AAD81BB00871FDE /* Realm */; };
 		D63FA3E22AAD81BB00871FDE /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D63FA3E12AAD81BB00871FDE /* RealmSwift */; };
 		D63FA3E42AAD825C00871FDE /* LikeProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3E32AAD825C00871FDE /* LikeProduct.swift */; };
+		D63FA3E62AAE287D00871FDE /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63FA3E52AAE287D00871FDE /* UIButton+Extension.swift */; };
 		D65E64442AAA2E590023F6DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64432AAA2E590023F6DF /* AppDelegate.swift */; };
 		D65E64462AAA2E590023F6DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64452AAA2E590023F6DF /* SceneDelegate.swift */; };
 		D65E64482AAA2E590023F6DF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65E64472AAA2E590023F6DF /* BaseViewController.swift */; };
@@ -60,6 +61,7 @@
 		D63FA3DA2AAD7A0200871FDE /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D63FA3DC2AAD810F00871FDE /* LikeRealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeRealmRepository.swift; sourceTree = "<group>"; };
 		D63FA3E32AAD825C00871FDE /* LikeProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeProduct.swift; sourceTree = "<group>"; };
+		D63FA3E52AAE287D00871FDE /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		D65E64402AAA2E590023F6DF /* SeSacRecapMyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacRecapMyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D65E64432AAA2E590023F6DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D65E64452AAA2E590023F6DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			children = (
 				D63FA3D62AACB89000871FDE /* UILabel+Extension.swift */,
 				D63FA3DA2AAD7A0200871FDE /* String+Extension.swift */,
+				D63FA3E52AAE287D00871FDE /* UIButton+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				D63FA3CA2AAC4B3B00871FDE /* TabBarController.swift in Sources */,
 				D65E64462AAA2E590023F6DF /* SceneDelegate.swift in Sources */,
 				D63FA3B32AAB84A600871FDE /* BaseCollectionViewCell.swift in Sources */,
+				D63FA3E62AAE287D00871FDE /* UIButton+Extension.swift in Sources */,
 				D63FA3D12AAC5E3700871FDE /* ShopInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

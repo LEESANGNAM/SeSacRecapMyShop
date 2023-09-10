@@ -15,6 +15,7 @@ class SearchViewcontroller: BaseViewController {
     var page = 1 // 페이지 저장용
     var searchText = "" //검색어 저장용
     var sortType: SearchSortType = .sim // 정렬용 변수
+    var selectButton: UIButton? // 선택된 버튼 넣을 변수
     let repository = LikeRepository()
     override func loadView() {
         self.view = mainView
@@ -47,7 +48,19 @@ class SearchViewcontroller: BaseViewController {
     @objc func sortButtonTapped(_ sender: UIButton){
         let index = sender.tag
         let buttonTappedType = sortTypeList[index]
+        let selectSortButton = mainView.sortButtons[index]
+        
+        if let selectButton {
+            selectButton.backgroundColor = .systemBackground
+            selectButton.setTitleColor(.label, for: .normal)
+        }
+        
+        sender.backgroundColor = .label   // 선택된 버튼의 배경을 라벨컬러
+        sender.setTitleColor(.systemBackground, for: .normal) // 라벨을 배경컬러로 반전 시켜준다.
+        selectButton = selectSortButton
         sortType = buttonTappedType // 버튼 클릭하면 정렬 타입 변경
+        
+        
         productList.removeAll()       //리스트 지우고 바뀐 타입으로 요청
         callRequest(type: sortType, page: page, text: searchText)
     }
@@ -85,6 +98,11 @@ extension SearchViewcontroller: UISearchBarDelegate {
         page = 1
         searchText = text
         sortType = .sim // 검색 기본값 정확도로 검색
+        if let firstButton = mainView.sortButtons.first {
+                firstButton.backgroundColor = .label
+                firstButton.setTitleColor(.systemBackground, for: .normal)
+                selectButton = firstButton
+            }
         productList.removeAll()
         searchBar.resignFirstResponder()
         callRequest(type: sortType, page: page, text: searchText)

@@ -20,7 +20,7 @@ class LikeRepository:LikeRepositoryType {
     private let realm = try! Realm()
     
     func fetch() -> Results<LikeProduct>{
-        let data = realm.objects(LikeProduct.self)
+        let data = realm.objects(LikeProduct.self).sorted(byKeyPath: "createTime", ascending: false)
         return data
     }
     

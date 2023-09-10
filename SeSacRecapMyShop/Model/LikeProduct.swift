@@ -15,6 +15,7 @@ class LikeProduct: Object{
     @Persisted var lprice : String
     @Persisted var image : String
     @Persisted var link : String
+    @Persisted var createTime = Date() //생성 시간
     
     var imageURL : URL? {
         return URL(string: image)

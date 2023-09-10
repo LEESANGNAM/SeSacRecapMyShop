@@ -81,7 +81,7 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
             posterImageView.image = UIImage(systemName: "bag.fill.badge.questionmark")
         }
         mallNameLabel.text = "[\(item.mallName)]"
-        titleNameLabel.text = item.title
+        titleNameLabel.text = item.title.removeHTMLTag()
         infoPriceLabel.text = item.lprice.changeFormatPrice()
     }
     

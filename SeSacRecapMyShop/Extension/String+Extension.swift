@@ -19,4 +19,7 @@ extension String {
         }
         return self
     }
+    func removeHTMLTag() -> String {
+        self.replacingOccurrences(of: "</b>", with: "").replacingOccurrences(of: "<b>", with: "")
+    }
 }

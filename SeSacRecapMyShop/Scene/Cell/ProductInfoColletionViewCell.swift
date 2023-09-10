@@ -9,6 +9,7 @@ import UIKit
 import Kingfisher
 
 class ProductInfoColletionViewCell: BaseCollectionViewCell {
+    let repository = LikeRepository()
     let posterImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 10
@@ -38,7 +39,7 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
         let button = UIButton()
         let buttonSize:CGFloat = 40
         button.frame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
-        button.setImage(UIImage(systemName: "heart"), for: .normal)
+//        button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.tintColor = .black
         button.layer.cornerRadius = buttonSize / 2
         button.backgroundColor = .white
@@ -75,6 +76,12 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
         }
     }
     func setUpCellUI(item: Item){
+        let likeProduct = repository.fetchFilter(item: item)
+        if likeProduct.isEmpty {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }else {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }
         if let imageURL = item.imageURL{
             posterImageView.kf.setImage(with: imageURL)
         }else{

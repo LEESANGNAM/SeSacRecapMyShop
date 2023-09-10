@@ -59,9 +59,9 @@ class SearchViewcontroller: BaseViewController {
             repository.createItem(likeprodut)
             print("추가완료")
         }else {
-            print("좋아요목록에 있음")
+            print("좋아요목록에 있음") // 삭제예정
         }
-        print(test)
+        mainView.collectionView.reloadData()
     }
     
 }

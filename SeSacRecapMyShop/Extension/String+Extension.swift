@@ -20,6 +20,9 @@ extension String {
         return self
     }
     func removeHTMLTag() -> String {
-        self.replacingOccurrences(of: "</b>", with: "").replacingOccurrences(of: "<b>", with: "")
+       return self.replacingOccurrences(of: "</b>", with: "").replacingOccurrences(of: "<b>", with: "")
+    }
+    func removeSpace() -> String {
+        return self.replacingOccurrences(of: " ", with: "")
     }
 }

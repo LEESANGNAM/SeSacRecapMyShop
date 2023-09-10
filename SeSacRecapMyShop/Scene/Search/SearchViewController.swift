@@ -46,7 +46,7 @@ class SearchViewcontroller: BaseViewController {
     }
     
     @objc func sortButtonTapped(_ sender: UIButton){
-        guard let text = mainView.searchBar.text, !text.isEmpty else {
+        guard let text = mainView.searchBar.text, !text.removeSpace().isEmpty else {
             print("선택 안되게 할거임, 색상타입도 안바꿔줄거임")
             return
         }
@@ -99,6 +99,7 @@ extension SearchViewcontroller: UISearchBarDelegate {
         page = 1
         searchText = text
         sortType = .sim // 검색 기본값 정확도로 검색
+        selectButton?.defaultSortButtonStyle()
         if let firstButton = mainView.sortButtons.first {
                 firstButton.selectSortButtonStyle()
                 selectButton = firstButton
@@ -112,6 +113,7 @@ extension SearchViewcontroller: UISearchBarDelegate {
         searchBar.text = ""
         searchText = ""
         productList.removeAll()
+        selectButton?.defaultSortButtonStyle()
         mainView.collectionView.reloadData()
     }
 }

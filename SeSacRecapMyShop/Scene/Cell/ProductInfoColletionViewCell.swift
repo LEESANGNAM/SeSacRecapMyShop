@@ -91,5 +91,15 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
         titleNameLabel.text = item.title.removeHTMLTag()
         infoPriceLabel.text = item.lprice.changeFormatPrice()
     }
-    
+    func setUpCellUI(likeProduct: LikeProduct){
+        likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        if let imageURL = likeProduct.imageURL{
+            posterImageView.kf.setImage(with: imageURL)
+        }else{
+            posterImageView.image = UIImage(systemName: "bag.fill.badge.questionmark")
+        }
+        mallNameLabel.text = "[\(likeProduct.mallName)]"
+        titleNameLabel.text = likeProduct.title
+        infoPriceLabel.text = likeProduct.lprice.changeFormatPrice()
+    }
 }

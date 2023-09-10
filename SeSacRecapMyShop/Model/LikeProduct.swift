@@ -16,6 +16,9 @@ class LikeProduct: Object{
     @Persisted var image : String
     @Persisted var link : String
     
+    var imageURL : URL? {
+        return URL(string: image)
+    }
     convenience init(item: Item) {
         self.init()
         self.productID = item.productID

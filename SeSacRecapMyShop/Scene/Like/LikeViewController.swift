@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RealmSwift
 
 class LikeViewController: BaseViewController {
     let mainView = LikeView()
+    let repository = LikeRepository()
+    var likeList: Results<LikeProduct>!
     override func loadView() {
         self.view = mainView
     }
@@ -16,6 +19,11 @@ class LikeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "좋아요 목록"
+        likeList = repository.fetch()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        mainView.collectionView.reloadData()
     }
     override func setUpView() {
         super.setUpView()
@@ -27,17 +35,24 @@ class LikeViewController: BaseViewController {
         mainView.collectionView.dataSource = self
         mainView.collectionView.delegate = self
     }
+    @objc func likeButtonTapped(_ sender: UIButton){
+        print("button Tapped")
+        let likeproduct = likeList[sender.tag]
+        repository.removeItem(likeproduct)
+        mainView.collectionView.reloadData()
+    }
 }
 extension LikeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return likeList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductInfoColletionViewCell.identifier, for: indexPath) as! ProductInfoColletionViewCell
-        cell.backgroundColor = .blue
-//        let item = productList[indexPath.row]
-//        cell.setUpCellUI(item: item)
+        let item = likeList[indexPath.row]
+        cell.setUpCellUI(likeProduct: item)
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         return cell
     }
 }

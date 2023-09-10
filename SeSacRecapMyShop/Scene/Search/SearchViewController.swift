@@ -15,6 +15,7 @@ class SearchViewcontroller: BaseViewController {
     var page = 1 // 페이지 저장용
     var searchText = "" //검색어 저장용
     var sortType: SearchSortType = .sim // 정렬용 변수
+    let repository = LikeRepository()
     override func loadView() {
         self.view = mainView
     }
@@ -49,6 +50,18 @@ class SearchViewcontroller: BaseViewController {
     
     @objc func likeButtonTapped(_ sender: UIButton){
         print("button Tapped")
+        let product = productList[sender.tag]
+        
+        let test =  repository.fetchFilter(item: product)
+        
+        if test.isEmpty {
+            let likeprodut = LikeProduct(item: product)
+            repository.createItem(likeprodut)
+            print("추가완료")
+        }else {
+            print("좋아요목록에 있음")
+        }
+        print(test)
     }
     
 }

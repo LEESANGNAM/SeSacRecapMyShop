@@ -46,8 +46,8 @@ class SearchViewcontroller: BaseViewController {
     }
     
     @objc func sortButtonTapped(_ sender: UIButton){
-        guard let text = mainView.searchBar.text, !text.removeSpace().isEmpty else {
-            print("선택 안되게 할거임, 색상타입도 안바꿔줄거임")
+        guard !searchText.isEmpty else {
+            print("실시간 검색x 엔터키로검색안해서 검색내용이없음 못클릭함")
             return
         }
         let index = sender.tag

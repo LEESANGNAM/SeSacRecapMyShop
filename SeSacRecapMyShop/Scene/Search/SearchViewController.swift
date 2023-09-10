@@ -47,6 +47,10 @@ class SearchViewcontroller: BaseViewController {
         callRequest(type: sortType, page: page, text: searchText)
     }
     
+    @objc func likeButtonTapped(_ sender: UIButton){
+        print("button Tapped")
+    }
+    
 }
 //MARK: - APICallRequest
 extension SearchViewcontroller {
@@ -87,6 +91,8 @@ extension SearchViewcontroller: UICollectionViewDelegate, UICollectionViewDataSo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductInfoColletionViewCell.identifier, for: indexPath) as! ProductInfoColletionViewCell
         let item = productList[indexPath.row]
         cell.setUpCellUI(item: item)
+        cell.likeButton.tag = indexPath.row
+        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
         return cell
     }
 }

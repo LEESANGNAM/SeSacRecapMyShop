@@ -34,9 +34,7 @@ class LikeProduct: Object{
                     link: self.link,
                     image: self.image,
                     lprice: self.lprice,
-                    hprice: "",
                     mallName: self.mallName,
-                    productID: self.productID,
-                    productType: "")
+                    productID: self.productID)
     }
 }

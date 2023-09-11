@@ -45,12 +45,12 @@ class DetailViewController: BaseViewController, WKUIDelegate{
         guard let product = product else { return }
             if let filterLikeProduct = repository.fetchFilter(item: product).first{
                 repository.removeItem(filterLikeProduct)
-                image = UIImage(systemName: "heart")
+                image = UIImage(systemName: ImageName.noLike)
                 print("삭제완료")
             } else {
                 let likeprodut = LikeProduct(item: product)
                 repository.createItem(likeprodut)
-                image = UIImage(systemName: "heart.fill")
+                image = UIImage(systemName: ImageName.Like)
                 print("추가완료")
             }
         updateHeartIcon()
@@ -64,9 +64,9 @@ class DetailViewController: BaseViewController, WKUIDelegate{
     func setUIData(item : Item){
         title = item.title.removeHTMLTag()
         if let likeProduct = repository.fetchFilter(item: item).first{
-            image = UIImage(systemName: "heart.fill")
+            image = UIImage(systemName: ImageName.Like)
         } else {
-            image = UIImage(systemName: "heart")
+            image = UIImage(systemName: ImageName.noLike)
         }
         updateHeartIcon()
     }

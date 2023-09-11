@@ -22,9 +22,9 @@ class TabBarController: UITabBarController {
         self.tabBar.backgroundColor = .systemBackground
         
         searchViewcontroller.tabBarItem.title = "검색"
-        searchViewcontroller.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        searchViewcontroller.tabBarItem.image = UIImage(systemName: ImageName.search)
         likeViewController.tabBarItem.title = "좋아요목록"
-        likeViewController.tabBarItem.image = UIImage(systemName: "heart")
+        likeViewController.tabBarItem.image = UIImage(systemName: ImageName.Like)
     }
     
 }

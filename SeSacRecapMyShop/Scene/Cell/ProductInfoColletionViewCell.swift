@@ -39,7 +39,6 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
         let button = UIButton()
         let buttonSize:CGFloat = 40
         button.frame = CGRect(x: 0, y: 0, width: buttonSize, height: buttonSize)
-//        button.setImage(UIImage(systemName: "heart"), for: .normal)
         button.tintColor = .black
         button.layer.cornerRadius = buttonSize / 2
         button.backgroundColor = .white
@@ -78,25 +77,25 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
     func setUpCellUI(item: Item){
         let likeProduct = repository.fetchFilter(item: item)
         if likeProduct.isEmpty {
-            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            likeButton.setImage(UIImage(systemName: ImageName.noLike), for: .normal)
         }else {
-            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            likeButton.setImage(UIImage(systemName: ImageName.Like), for: .normal)
         }
         if let imageURL = item.imageURL{
             posterImageView.kf.setImage(with: imageURL)
         }else{
-            posterImageView.image = UIImage(systemName: "bag.fill.badge.questionmark")
+            posterImageView.image = UIImage(systemName: ImageName.noPosterImage)
         }
         mallNameLabel.text = "[\(item.mallName)]"
         titleNameLabel.text = item.title.removeHTMLTag()
         infoPriceLabel.text = item.lprice.changeFormatPrice()
     }
     func setUpCellUI(likeProduct: LikeProduct){
-        likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        likeButton.setImage(UIImage(systemName: ImageName.Like), for: .normal)
         if let imageURL = likeProduct.imageURL{
             posterImageView.kf.setImage(with: imageURL)
         }else{
-            posterImageView.image = UIImage(systemName: "bag.fill.badge.questionmark")
+            posterImageView.image = UIImage(systemName: ImageName.noPosterImage)
         }
         mallNameLabel.text = "[\(likeProduct.mallName)]"
         titleNameLabel.text = likeProduct.title

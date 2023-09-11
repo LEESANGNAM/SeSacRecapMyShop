@@ -497,6 +497,7 @@
 				DEVELOPMENT_TEAM = Y7C6A3W353;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSacRecapMyShop/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "이상남";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -525,6 +526,7 @@
 				DEVELOPMENT_TEAM = Y7C6A3W353;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SeSacRecapMyShop/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "이상남";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

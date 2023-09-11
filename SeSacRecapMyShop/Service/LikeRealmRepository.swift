@@ -16,7 +16,7 @@ protocol LikeRepositoryType: AnyObject {
         func removeItem(_ item: LikeProduct)
 }
 
-class LikeRepository:LikeRepositoryType {
+final class LikeRepository:LikeRepositoryType {
     
     private let realm = try! Realm()
     

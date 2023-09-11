@@ -15,6 +15,7 @@ class BaseViewController: UIViewController, BaseProtocol {
         setUpView()
         setConstraints()
         setDelegate()
+        keyboardDownViewTapped()
         // Do any additional setup after loading the view.
     }
     
@@ -24,6 +25,13 @@ class BaseViewController: UIViewController, BaseProtocol {
     }
     func setConstraints(){ }
     func setDelegate(){ }
-
+    
+    private func keyboardDownViewTapped(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(keyboardDown))
+        view.addGestureRecognizer(tap)
+    }
+    @objc private func keyboardDown(){
+        view.endEditing(true)
+    }
 }
 

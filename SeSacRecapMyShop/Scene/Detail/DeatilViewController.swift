@@ -24,8 +24,12 @@ class DetailViewController: BaseViewController, WKUIDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let product {
+            setUIData(item: product)
+        }
     }
     
     override func setUpView() {

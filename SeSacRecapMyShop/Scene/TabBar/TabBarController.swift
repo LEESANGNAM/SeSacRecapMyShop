@@ -23,7 +23,7 @@ class TabBarController: UITabBarController {
         
         movieTrendWeekViewController.tabBarItem.title = "검색"
         movieTrendWeekViewController.tabBarItem.image = UIImage(systemName: "magnifyingglass")
-        multipleViewcontroller.tabBarItem.title = "좋아요"
+        multipleViewcontroller.tabBarItem.title = "좋아요목록"
         multipleViewcontroller.tabBarItem.image = UIImage(systemName: "heart")
     }
     

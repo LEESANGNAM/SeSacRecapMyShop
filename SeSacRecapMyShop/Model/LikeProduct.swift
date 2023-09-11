@@ -29,4 +29,14 @@ class LikeProduct: Object{
         self.image = item.image
         self.link = item.link
     }
+    func changeToItem() -> Item {
+        return Item(title: self.title,
+                    link: self.link,
+                    image: self.image,
+                    lprice: self.lprice,
+                    hprice: "",
+                    mallName: self.mallName,
+                    productID: self.productID,
+                    productType: "")
+    }
 }

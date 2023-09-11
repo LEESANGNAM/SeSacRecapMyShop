@@ -68,6 +68,7 @@ extension LikeViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         likeList = repository.fetch()
+        searchBar.resignFirstResponder()
         mainView.collectionView.reloadData()
     }
     

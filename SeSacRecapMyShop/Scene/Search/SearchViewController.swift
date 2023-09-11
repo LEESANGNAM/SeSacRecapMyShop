@@ -114,6 +114,7 @@ extension SearchViewcontroller: UISearchBarDelegate {
         searchText = ""
         productList.removeAll()
         selectButton?.defaultSortButtonStyle()
+        searchBar.resignFirstResponder()
         mainView.collectionView.reloadData()
     }
 }
@@ -145,7 +146,7 @@ extension SearchViewcontroller: UICollectionViewDataSourcePrefetching {
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths{
-            if productList.count - 10 == indexPath.row && page < 100{ // page 1000까지 가능 일단 100까지
+            if productList.count - 2 == indexPath.row && page < 100{ // page 1000까지 가능 일단 100까지
                 page += 1
                 callRequest(type: sortType, page: page, text: searchText)
             }

@@ -28,6 +28,7 @@ class BaseViewController: UIViewController, BaseProtocol {
     
     private func keyboardDownViewTapped(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(keyboardDown))
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     @objc private func keyboardDown(){

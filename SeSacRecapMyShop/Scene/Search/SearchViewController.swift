@@ -95,7 +95,9 @@ extension SearchViewcontroller {
 //MARK: - SearchBar
 extension SearchViewcontroller: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text, !text.isEmpty else {  return }
+        guard let text = searchBar.text, !text.removeSpace().isEmpty else {
+            print("비어있음")
+            return }
         page = 1
         searchText = text
         sortType = .sim // 검색 기본값 정확도로 검색

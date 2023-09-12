@@ -73,12 +73,13 @@ extension LikeViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty{
+        let text = searchText.removeSpace()
+        if text.isEmpty{
             likeList = repository.fetch()
             mainView.collectionView.reloadData()
             return
         }
-        likeList = repository.fetchFilterTitle(title: searchText)
+        likeList = repository.fetchFilterTitle(title: text)
         mainView.collectionView.reloadData()
     }
 }

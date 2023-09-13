@@ -87,7 +87,7 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
             posterImageView.image = UIImage(systemName: ImageName.noPosterImage)
         }
         mallNameLabel.text = "[\(item.mallName)]"
-        titleNameLabel.text = item.title.removeHTMLTag()
+        titleNameLabel.text = item.removeHTMLTagTitle
         infoPriceLabel.text = item.lprice.changeFormatPrice()
     }
     func setUpCellUI(likeProduct: LikeProduct){

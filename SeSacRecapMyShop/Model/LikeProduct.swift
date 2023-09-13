@@ -24,7 +24,7 @@ class LikeProduct: Object{
         self.init()
         self.productID = item.productID
         self.mallName = item.mallName
-        self.title = item.title.removeHTMLTag()
+        self.title = item.removeHTMLTagTitle
         self.lprice = item.lprice
         self.image = item.image
         self.link = item.link

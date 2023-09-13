@@ -67,7 +67,7 @@ class DetailViewController: BaseViewController, WKUIDelegate{
         }
     
     func setUIData(item : Item){
-        title = item.title.removeHTMLTag()
+        title = item.removeHTMLTagTitle
         setHeartIcon(item: item)
         updateHeartIcon()
     }

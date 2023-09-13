@@ -24,6 +24,10 @@ struct Item: Codable {
         return URL(string: image)
     }
     
+    var removeHTMLTagTitle: String {
+        return title.removeHTMLTag()
+    }
+    
     enum CodingKeys: String, CodingKey {
         case title, link, image, lprice, mallName
         case productID = "productId"

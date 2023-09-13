@@ -61,9 +61,11 @@ class SearchViewcontroller: BaseViewController {
         selectButton = selectSortButton
         sortType = buttonTappedType // 버튼 클릭하면 정렬 타입 변경
         
-        
         productList.removeAll()       //리스트 지우고 바뀐 타입으로 요청
-        callRequest(type: sortType, page: page, text: searchText)
+        page = 1
+        callRequest(type: sortType, page: page, text: searchText){
+            self.mainView.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+        }
     }
     
     @objc func likeButtonTapped(_ sender: UIButton){
@@ -84,11 +86,16 @@ class SearchViewcontroller: BaseViewController {
 }
 //MARK: - APICallRequest
 extension SearchViewcontroller {
-    func callRequest(type: SearchSortType, page: Int, text : String){
+    func callRequest(type: SearchSortType, page: Int, text : String, completion: (() -> Void)? = nil){
         APIService.shared.callRequest(type: type, query: text, page: page) { (data: ShopInfo) in
             //            print(data.items)
             self.productList += data.items
+            for element in data.items{
+                print("------------------------------------")
+                print(element)
+            }
             self.mainView.collectionView.reloadData()
+            completion?()
         }
     }
 }
@@ -128,10 +135,15 @@ extension SearchViewcontroller: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductInfoColletionViewCell.identifier, for: indexPath) as! ProductInfoColletionViewCell
-        let item = productList[indexPath.row]
-        cell.setUpCellUI(item: item)
-        cell.likeButton.tag = indexPath.row
-        cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+//        let item = productList[indexPath.row]
+        if indexPath.row < productList.count {
+            // 유효한 인덱스에서 항목을 가져오는 코드
+            let item = productList[indexPath.row]
+            cell.prepareForReuse()
+            cell.setUpCellUI(item: item)
+            cell.likeButton.tag = indexPath.row
+            cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
+        }
         return cell
     }
     

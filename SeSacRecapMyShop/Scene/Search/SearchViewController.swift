@@ -23,7 +23,7 @@ class SearchViewcontroller: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "상품 검색"
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,6 +31,9 @@ class SearchViewcontroller: BaseViewController {
     }
     override func setUpView() {
         super.setUpView()
+        title = "상품 검색"
+        let backbutton = UIBarButtonItem(title: title, style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backbutton
         for (index, button) in mainView.sortButtons.enumerated(){
             button.tag = index
             button.addTarget(self, action: #selector(sortButtonTapped), for: .touchUpInside)

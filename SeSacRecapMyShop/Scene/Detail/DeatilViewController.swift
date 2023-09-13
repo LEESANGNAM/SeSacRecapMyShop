@@ -35,7 +35,7 @@ class DetailViewController: BaseViewController, WKUIDelegate{
     override func setUpView() {
         guard let product = product else { return }
         setUIData(item: product)
-        configureNavigationBarButton(image: image, selector: #selector(likeButtonTapped))
+        configureNavigationBarButton(image: image)
         loadWebView(with: product.productID)
         
         let appearance = UINavigationBarAppearance()
@@ -72,9 +72,10 @@ class DetailViewController: BaseViewController, WKUIDelegate{
         updateHeartIcon()
     }
     
-    func configureNavigationBarButton(image: UIImage?, selector: Selector) {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: selector)
-        navigationItem.rightBarButtonItem?.tintColor = .label
+    func configureNavigationBarButton(image: UIImage?) {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(likeButtonTapped))
+        navigationController?.navigationBar.tintColor = .label
+        
     }
     func setHeartIcon(item : Item){
         if let likeProduct = repository.fetchFilter(item: item).first{

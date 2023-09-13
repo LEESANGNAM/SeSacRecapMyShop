@@ -18,7 +18,6 @@ class LikeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "좋아요 목록"
         likeList = repository.fetch()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +26,9 @@ class LikeViewController: BaseViewController {
     }
     override func setUpView() {
         super.setUpView()
+        title = "좋아요 목록"
+        let backbutton = UIBarButtonItem(title: title, style: .plain, target: nil, action: nil)
+        self.navigationItem.backBarButtonItem = backbutton
     }
     override func setConstraints() {
     }

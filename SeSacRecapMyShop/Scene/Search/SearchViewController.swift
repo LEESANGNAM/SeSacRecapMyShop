@@ -54,9 +54,7 @@ class SearchViewcontroller: BaseViewController {
         let buttonTappedType = sortTypeList[index]
         let selectSortButton = mainView.sortButtons[index]
         
-        if let selectButton {
-            selectButton.defaultSortButtonStyle()
-        }
+        selectButton?.defaultSortButtonStyle()
         sender.selectSortButtonStyle()  // 선택된 버튼의 배경을 라벨컬러, 라벨을 배경컬러로 반전 시켜준다.
         selectButton = selectSortButton
         sortType = buttonTappedType // 버튼 클릭하면 정렬 타입 변경

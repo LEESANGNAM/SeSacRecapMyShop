@@ -49,14 +49,15 @@ class DetailViewController: BaseViewController, WKUIDelegate{
         guard let product = product else { return }
             if let filterLikeProduct = repository.fetchFilter(item: product).first{
                 repository.removeItem(filterLikeProduct)
-                image = UIImage(systemName: ImageName.noLike)
+//                image = UIImage(systemName: ImageName.noLike)
                 print("삭제완료")
             } else {
                 let likeprodut = LikeProduct(item: product)
                 repository.createItem(likeprodut)
-                image = UIImage(systemName: ImageName.Like)
+//                image = UIImage(systemName: ImageName.Like)
                 print("추가완료")
             }
+        setHeartIcon(item: product)
         updateHeartIcon()
     }
     func loadWebView(with productID: String) {
@@ -67,16 +68,20 @@ class DetailViewController: BaseViewController, WKUIDelegate{
     
     func setUIData(item : Item){
         title = item.title.removeHTMLTag()
+        setHeartIcon(item: item)
+        updateHeartIcon()
+    }
+    
+    func configureNavigationBarButton(image: UIImage?, selector: Selector) {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: selector)
+        navigationItem.rightBarButtonItem?.tintColor = .label
+    }
+    func setHeartIcon(item : Item){
         if let likeProduct = repository.fetchFilter(item: item).first{
             image = UIImage(systemName: ImageName.Like)
         } else {
             image = UIImage(systemName: ImageName.noLike)
         }
-        updateHeartIcon()
-    }
-    func configureNavigationBarButton(image: UIImage?, selector: Selector) {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: selector)
-        navigationItem.rightBarButtonItem?.tintColor = .label
     }
     func updateHeartIcon() {
         navigationItem.rightBarButtonItem?.image = image

@@ -135,11 +135,9 @@ extension SearchViewcontroller: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductInfoColletionViewCell.identifier, for: indexPath) as! ProductInfoColletionViewCell
-//        let item = productList[indexPath.row]
         if indexPath.row < productList.count {
             // 유효한 인덱스에서 항목을 가져오는 코드
             let item = productList[indexPath.row]
-            cell.prepareForReuse()
             cell.setUpCellUI(item: item)
             cell.likeButton.tag = indexPath.row
             cell.likeButton.addTarget(self, action: #selector(likeButtonTapped), for: .touchUpInside)
@@ -160,8 +158,8 @@ extension SearchViewcontroller: UICollectionViewDataSourcePrefetching {
     
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths{
-            if productList.count - 2 == indexPath.row && page < 100{ // page 1000까지 가능 일단 100까지
-                page += 1
+            if productList.count - 2 == indexPath.row && page < 1000{ // page(start)아이템위치 30개이후 스타트는 31번째 아이템 1000까지 가능
+                page += 30
                 callRequest(type: sortType, page: page, text: searchText)
             }
         }

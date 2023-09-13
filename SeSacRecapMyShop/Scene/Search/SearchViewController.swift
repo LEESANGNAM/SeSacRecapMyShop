@@ -46,24 +46,32 @@ class SearchViewcontroller: BaseViewController {
     }
     
     @objc func sortButtonTapped(_ sender: UIButton){
-        guard !searchText.isEmpty else {
-            print("실시간 검색x 엔터키로검색안해서 검색내용이없음 못클릭함")
-            return
-        }
-        let index = sender.tag
-        let buttonTappedType = sortTypeList[index]
-        let selectSortButton = mainView.sortButtons[index]
-        
-        selectButton?.defaultSortButtonStyle()
-        sender.selectSortButtonStyle()  // 선택된 버튼의 배경을 라벨컬러, 라벨을 배경컬러로 반전 시켜준다.
-        
-        selectButton = selectSortButton
-        sortType = buttonTappedType // 버튼 클릭하면 정렬 타입 변경
-        
-        productList.removeAll()       //리스트 지우고 바뀐 타입으로 요청
-        page = 1
-        callRequest(type: sortType, page: page, text: searchText){
-            self.mainView.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+//        guard !searchText.isEmpty else {
+//            print("실시간 검색x 엔터키로검색안해서 검색내용이없음 못클릭함")
+//            return
+//        }
+        do {
+            let _ = try checkVaildation(text: searchText)
+            let index = sender.tag
+            let buttonTappedType = sortTypeList[index]
+            let selectSortButton = mainView.sortButtons[index]
+            
+            selectButton?.defaultSortButtonStyle()
+            sender.selectSortButtonStyle()  // 선택된 버튼의 배경을 라벨컬러, 라벨을 배경컬러로 반전 시켜준다.
+            
+            selectButton = selectSortButton
+            sortType = buttonTappedType // 버튼 클릭하면 정렬 타입 변경
+            
+            productList.removeAll()       //리스트 지우고 바뀐 타입으로 요청
+            page = 1
+            callRequest(type: sortType, page: page, text: searchText){
+                self.mainView.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+            }
+        }catch{
+            switch error {
+            case ValidationError.emptyString: print(ValidationError.emptyString.returnString)
+            default: print("error")
+            }
         }
     }
     
@@ -81,7 +89,13 @@ class SearchViewcontroller: BaseViewController {
         }
         mainView.collectionView.reloadItems(at: [IndexPath(item: sender.tag, section: 0)])
     }
-    
+    func checkVaildation(text: String) throws -> Bool {
+        guard !(text.removeSpace().isEmpty) else{
+            print("빈값")
+            throw ValidationError.emptyString
+        }
+        return true
+    }
 }
 //MARK: - APICallRequest
 extension SearchViewcontroller {
@@ -101,21 +115,32 @@ extension SearchViewcontroller {
 //MARK: - SearchBar
 extension SearchViewcontroller: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let text = searchBar.text, !text.removeSpace().isEmpty else {
-            print("비어있음")
-            return }
-        page = 1
-        searchText = text
-        sortType = .sim // 검색 기본값 정확도로 검색
+        guard let text = searchBar.text else {
+            print("값이 없음")
+            return
+        }
+        do {
+            let _ = try checkVaildation(text: text)
+            page = 1
+            searchText = text
+            sortType = .sim // 검색 기본값 정확도로 검색
+            
+            selectButton?.defaultSortButtonStyle() // 기존 선택된 버튼 있으면 선택해제스타일
+            
+            selectButton = mainView.sortButtons[sortType.rawValue] // 정확도 버튼
+            selectButton?.selectSortButtonStyle()
+            
+            productList.removeAll()
+            searchBar.resignFirstResponder()
+            callRequest(type: sortType, page: page, text: searchText)
+            
+        }catch{
+            switch error{
+            case ValidationError.emptyString: print(ValidationError.emptyString.returnString)
+            default: print("Error")
+            }
+        }
         
-        selectButton?.defaultSortButtonStyle() // 기존 선택된 버튼 있으면 선택해제스타일
-        
-        selectButton = mainView.sortButtons[sortType.rawValue] // 정확도 버튼
-        selectButton?.selectSortButtonStyle()
-        
-        productList.removeAll()
-        searchBar.resignFirstResponder()
-        callRequest(type: sortType, page: page, text: searchText)
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         page = 1

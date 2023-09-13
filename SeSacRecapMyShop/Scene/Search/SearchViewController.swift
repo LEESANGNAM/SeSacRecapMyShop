@@ -56,6 +56,7 @@ class SearchViewcontroller: BaseViewController {
         
         selectButton?.defaultSortButtonStyle()
         sender.selectSortButtonStyle()  // 선택된 버튼의 배경을 라벨컬러, 라벨을 배경컬러로 반전 시켜준다.
+        
         selectButton = selectSortButton
         sortType = buttonTappedType // 버튼 클릭하면 정렬 타입 변경
         
@@ -106,11 +107,12 @@ extension SearchViewcontroller: UISearchBarDelegate {
         page = 1
         searchText = text
         sortType = .sim // 검색 기본값 정확도로 검색
-        selectButton?.defaultSortButtonStyle()
-        if let firstButton = mainView.sortButtons.first {
-                firstButton.selectSortButtonStyle()
-                selectButton = firstButton
-            }
+        
+        selectButton?.defaultSortButtonStyle() // 기존 선택된 버튼 있으면 선택해제스타일
+        
+        selectButton = mainView.sortButtons[sortType.rawValue] // 정확도 버튼
+        selectButton?.selectSortButtonStyle()
+        
         productList.removeAll()
         searchBar.resignFirstResponder()
         callRequest(type: sortType, page: page, text: searchText)

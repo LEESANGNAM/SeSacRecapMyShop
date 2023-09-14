@@ -68,11 +68,12 @@ class SearchViewcontroller: BaseViewController {
             productList.removeAll()       //리스트 지우고 바뀐 타입으로 요청
             page = 1
             callRequest(type: sortType, page: page, text: searchText){
+                self.mainView.collectionView.reloadData()
                 self.mainView.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
             }
         }catch{
             switch error {
-            case ValidationError.emptyString: print(ValidationError.emptyString.returnString)
+            case ValidationError.emptyString: showAlert(text: ValidationError.emptyString.returnString)
             default: print("error")
             }
         }
@@ -105,6 +106,9 @@ extension SearchViewcontroller {
     func callRequest(type: SearchSortType, page: Int, text : String, completion: (() -> Void)? = nil){
         APIService.shared.callRequest(type: type, query: text, page: page) { (data: ShopInfo) in
             //            print(data.items)
+            if data.items.isEmpty{
+                self.showAlert(text:ValidationError.emptyData.returnString)
+            }
             self.productList += data.items
             for element in data.items{
                 print("------------------------------------")

@@ -22,28 +22,26 @@ final class APIService {
         ]
         let parameters: Parameters = [
             "query": query, //검색어
-            "display": 102, //요청 갯수
+            "display": 30, //요청 갯수
             "start": page, // 페이지
             "sort": type.requstParam //정렬 방법
         ]
         print("--------------------url",url,"------------sort",type.requstParam,"---------page",page)
-        AF.request(url, method: .get, parameters: parameters, headers: header).validate(statusCode: 200...500)
+        AF.request(url, method: .get, parameters: parameters, headers: header).validate(statusCode: 200...300)
             .responseDecodable(of: T.self) { response in
                 switch response.result {
                 case .success(let value):
                     completionHandler(value)
                 case .failure(let error):
                     if let statusCode = response.response?.statusCode {
-                        switch statusCode {
-                        case 400:
-                            // 400 Bad Request 상태 코드 처리
-                            print("잘못된오류\(error)")
-                        case 404:
-                            // 403 Forbidden 상태 코드 처리
-                            print("링크오류\(error)")
-                        case 500:
-                            // 403 Forbidden 상태 코드 처리
-                            print("시스템오류\(error)")
+                        let statysError = NetworkError(rawValue: statusCode)
+                        switch statysError {
+                        case .parameterError:
+                            print("잘못된 파라미터 값 에러 : 파라미터값 확인 \(error)")
+                        case .notFoundError:
+                            print("API 링크오류 존재하지 않는 링크: 요청 URL 확인\(error)")
+                        case .systemError:
+                            print("시스템 에러\(error)")
                         default:
                             print("Error with status code: \(statusCode)")
                         }

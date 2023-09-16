@@ -82,7 +82,16 @@ class ProductInfoColletionViewCell: BaseCollectionViewCell {
             likeButton.setImage(UIImage(systemName: ImageName.Like), for: .normal)
         }
         if let imageURL = item.imageURL{
-            posterImageView.kf.setImage(with: imageURL)
+            let imagesize = posterImageView.bounds.size //이미지뷰 사이즈
+            let dowunSizeProcessor = DownsamplingImageProcessor(size: imagesize) //사이즈만큼 줄이기
+            posterImageView.kf.indicatorType = .activity //인디케이터
+            posterImageView.kf.setImage(
+                with: imageURL,
+                options: [
+                    .processor(dowunSizeProcessor),
+                    .cacheOriginalImage // 큰사이즈 이미지 캐싱
+                         ]
+                )
         }else{
             posterImageView.image = UIImage(systemName: ImageName.noPosterImage)
         }

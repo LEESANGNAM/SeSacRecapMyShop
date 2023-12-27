@@ -11,7 +11,18 @@ import RealmSwift
 class LikeViewController: BaseViewController {
     let mainView = LikeView()
     let repository = LikeRepository()
-    var likeList: Results<LikeProduct>!
+    var likeList: Results<LikeProduct>! {
+        didSet {
+            print(likeList.count)
+            if let _ = likeList.first {
+                mainView.nodataView.isHidden = true
+                mainView.collectionView.isHidden = false
+            }else {
+                mainView.nodataView.isHidden = false
+                mainView.collectionView.isHidden = true
+            }
+        }
+    }
     override func loadView() {
         self.view = mainView
     }
@@ -22,6 +33,8 @@ class LikeViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        mainView.searchBar.text = ""
+        likeList = repository.fetch()
         mainView.collectionView.reloadData()
     }
     override func setUpView() {
@@ -42,6 +55,7 @@ class LikeViewController: BaseViewController {
         print("button Tapped")
         let likeproduct = likeList[sender.tag]
         repository.removeItem(likeproduct)
+        likeList = repository.fetch()
         mainView.collectionView.reloadData()
     }
 }

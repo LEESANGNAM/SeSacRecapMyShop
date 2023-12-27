@@ -7,16 +7,22 @@
 
 import UIKit
 
-protocol ReusablViewProtocol {
-    static var identifier: String { get }
-}
+//protocol ReusablViewProtocol {
+//    static var identifier: String { get }
+//}
+//
+//extension UIViewController: ReusablViewProtocol {
+//    static var identifier: String {
+//        return String(describing: self)
+//    }
+//}
+//extension UICollectionViewCell: ReusablViewProtocol {
+//    static var identifier: String {
+//        return String(describing: self)
+//    }
+//}
 
-extension UIViewController: ReusablViewProtocol {
-    static var identifier: String {
-        return String(describing: self)
-    }
-}
-extension UICollectionViewCell: ReusablViewProtocol {
+extension NSObject {
     static var identifier: String {
         return String(describing: self)
     }

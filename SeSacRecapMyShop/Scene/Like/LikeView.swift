@@ -10,7 +10,17 @@ class LikeView: BaseView {
     
     let searchSortButtonlist = SearchSortType.allCases
     var sortButtons: [UIButton] = []
-    
+    let nodatalabel = {
+       let view = UILabel()
+        view.text = "상품검색에서 좋아요를 해보세요"
+        return view
+    }()
+    lazy var nodataView = {
+        let view = UIView()
+        view.addSubview(nodatalabel)
+        view.backgroundColor = .systemBackground
+        return view
+    }()
     let searchBar = {
         let view = UISearchBar()
         view.placeholder = "검색어를 입력해주세요"
@@ -47,6 +57,7 @@ class LikeView: BaseView {
         super.setUpView()
         addSubview(searchBar)
         addSubview(collectionView)
+        addSubview(nodataView)
     }
     
     override func setConstraints() {
@@ -56,6 +67,13 @@ class LikeView: BaseView {
             make.top.equalTo(self.safeAreaLayoutGuide)
         }
         collectionView.snp.makeConstraints { make in
+            make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
+            make.top.equalTo(searchBar.snp.bottom).offset(10)
+        }
+        nodatalabel.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+        }
+        nodataView.snp.makeConstraints { make in
             make.horizontalEdges.bottom.equalTo(self.safeAreaLayoutGuide)
             make.top.equalTo(searchBar.snp.bottom).offset(10)
         }

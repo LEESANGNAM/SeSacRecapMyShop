@@ -4,13 +4,13 @@
 ### 실행화면
 <p>
 <!-- [상품검색_좋아요] -->
-<img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/e29f157a-0642-4d70-8b27-b0290be12a98" width="25%"/>  
+<img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/e29f157a-0642-4d70-8b27-b0290be12a98" width="22%"/>  
 <!-- [상품상세_웹뷰] -->
-<img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/ed2a6dad-53b8-4a71-9d38-0fd6488be524" width="25%"/>  
+<img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/ed2a6dad-53b8-4a71-9d38-0fd6488be524" width="22%"/>  
 <!-- [좋아요리스트_검색] -->
-<img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/917712ff-5169-4b51-bd56-6a81c9ccb018" width="25%"/>  
+<img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/917712ff-5169-4b51-bd56-6a81c9ccb018" width="22%"/>  
 <!-- [좋아요리스트_없을때] -->
-<img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/6e2e5327-91b3-45f8-b8ba-518ed5e8ef50" width="25%"/>  
+<img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/6e2e5327-91b3-45f8-b8ba-518ed5e8ef50" width="22%"/>  
 
 </p>
 

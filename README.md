@@ -37,6 +37,28 @@
 ## 트러블슈팅
 
 ### 이미지 다운샘플링
+<p>
+
+<img src = "hhttps://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/dda893de-0492-453e-8751-5898ba8f3c4f"  width="40%"/> 
+<img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/0577e4a9-937b-47a5-8500-24f90bfc5b9e"  width="40%"/>  
+</p>
+
++ api호출 후 이미지를 보여주는 과정에서 이미지의 로딩이 지연되고 스크롤시 메모리가 많이 차지하는 문제 발견
++ Kingfisher의 이미지 캐싱과 다운샘플링을 이용해 메모리 사용 최소화, 이미지 로딩되는 동안 인디케이터 사용
+~~~ swift
+if let imageURL = item.imageURL{
+            let imagesize = posterImageView.bounds.size //이미지뷰 사이즈
+            let dowunSizeProcessor = DownsamplingImageProcessor(size: imagesize) //사이즈만큼 줄이기
+            posterImageView.kf.indicatorType = .activity //인디케이터
+            posterImageView.kf.setImage(
+                with: imageURL,
+                options: [
+                    .processor(dowunSizeProcessor),
+                    .cacheOriginalImage // 큰사이즈 이미지 캐싱
+                         ]
+                )
+        }
+~~~
 
 ### 필터옵션변경 스크롤 최상단
 

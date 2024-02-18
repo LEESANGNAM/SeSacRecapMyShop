@@ -43,7 +43,7 @@
 <img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/0577e4a9-937b-47a5-8500-24f90bfc5b9e"  width="40%"/>  
 </p>
 
-+ api호출 후 이미지를 보여주는 과정에서 이미지의 로딩이 지연되고 스크롤시 메모리가 많이 차지하는 문제 발견
++ api호출 후 이미지를 보여주는 과정에서 이미지의 로딩이 지연되고 스크롤시 메모리가 많이 차지하는 문제가 생겼다.
 + Kingfisher의 이미지 캐싱과 다운샘플링을 이용해 메모리 사용 최소화, 이미지 로딩되는 동안 인디케이터 사용
 ~~~ swift
 if let imageURL = item.imageURL{
@@ -60,6 +60,16 @@ if let imageURL = item.imageURL{
         }
 ~~~
 
-### 필터옵션변경 스크롤 최상단
+### 정렬옵션변경 스크롤 최상단
++ 검색을 스크롤 하는 도중 정렬옵션을 변경 하는경우 데이터만 초기화 되고 스크롤은 유지가 되는 문제가 생겼다.
++ api  콜이 끝날때 스크롤을 top 으로 올려주도록해서 문제 해결
 
+~~~ swift 
+productList.removeAll()       //리스트 지우고 바뀐 타입으로 요청
+page = 1
+callRequest(type: sortType, page: page, text: searchText){
+    self.mainView.collectionView.reloadData()
+    self.mainView.collectionView.scrollToItem(at: IndexPath(item: 0, section: 0), at: .top, animated: true)
+}
+~~~
 ### 키보드를 내리기 위해 탭 제스처추가 후 셀선택 안되는 문제

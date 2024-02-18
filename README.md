@@ -39,7 +39,7 @@
 ### 이미지 다운샘플링
 <p>
 
-<img src = "hhttps://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/dda893de-0492-453e-8751-5898ba8f3c4f"  width="40%"/> 
+<img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/12d0743f-b97b-4e8c-ab8d-08ee8616b72d"  width="40%"/> 
 <img src = "https://github.com/LEESANGNAM/SeSacRecapMyShop/assets/61412496/0577e4a9-937b-47a5-8500-24f90bfc5b9e"  width="40%"/>  
 </p>
 

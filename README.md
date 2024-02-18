@@ -73,3 +73,15 @@ callRequest(type: sortType, page: page, text: searchText){
 }
 ~~~
 ### 키보드를 내리기 위해 탭 제스처추가 후 셀선택 안되는 문제
++ 키보드를 내리기위해 view에 UITapGestureRecognizer추가 후 컬렉션뷰 셀클릭이 안되는 문제가 생겼다.
++ tap.cancelsTouchesInView = false  로 변경하여 모든 터치를 뷰에서 전달받도록 변경했다.
+~~~ swift 
+private func keyboardDownViewTapped(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(keyboardDown))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+@objc private func keyboardDown(){
+    view.endEditing(true)
+}
+~~~

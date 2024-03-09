@@ -40,7 +40,7 @@
 + **Alamofire** 를 활용한 API통신
     + **Codable** 과 **Generic** 을 사용해 통합모듈 구현 
 + **WebView** 를 사용해 제품 상세페이지 조회
-+ **Kingfisher를 사용한 이미지 캐싱 및 다운샘플링 구현
++ **Kingfisher** 를 사용한 이미지 캐싱 및 다운샘플링 구현
 
 
 ## 트러블슈팅
